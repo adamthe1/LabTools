@@ -5,8 +5,7 @@ import numpy as np
 import json
 import warnings
 import time
-from dotenv import load_dotenv
-load_dotenv()
+from ..utils.env_loader import *  # Load .env with absolute path
 
 # #region agent log
 _DEBUG_LOG = "/home/adamgab/PycharmProjects/GaitPredict/.cursor/debug.log"
@@ -161,14 +160,11 @@ def _load_temp_description_json() -> dict:
 	with open(_TEMP_DESC_PATH, 'r') as f:
 		return json.load(f)
 
-def load_system_description_json(no_temp: bool = False) -> dict:
+def load_system_description_json() -> dict:
 	"""Load merged main + temp body systems descriptions."""
-	if no_temp:
-		return _load_main_description_json()
-	else:
-		main = _load_main_description_json()
-		temp = _load_temp_description_json()
-		return {**main, **temp}  # Temp overrides main if same name
+	main = _load_main_description_json()
+	temp = _load_temp_description_json()
+	return {**main, **temp}  # Temp overrides main if same name
 
 def get_body_system_column_names(system: str) -> list[str]:
 	"""
