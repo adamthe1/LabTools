@@ -2,3 +2,7 @@
 __pycache__/
 .env
 
+age_medical_conditions_analysis/
+
+._.DS_Store*
+.DS_Store

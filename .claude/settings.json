@@ -1,0 +1,8 @@
+{
+  "skills": {
+    "hpp": {
+      "description": "HPP/10K dataset research skill - data loading, cross-validation, biomarker analysis",
+      "path": ".claude/hpp-research.md"
+    }
+  }
+}
